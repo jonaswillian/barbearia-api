@@ -3,7 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Usuario } from './usuario/usuario.entity';
+import { Agendamento } from './agendamento/agendamento.entity';
 import { UsuarioModule } from './usuario/usuario.module';
+import { AgendamentoModule } from './agendamento/agendamento.module';
 
 @Module({
   imports: [
@@ -14,10 +16,11 @@ import { UsuarioModule } from './usuario/usuario.module';
       username: 'root',
       password: '',
       database: 'barbearia-app',
-      entities: [Usuario],
+      entities: [Usuario, Agendamento],
       synchronize: false,
     }),
-    UsuarioModule
+    UsuarioModule,
+    AgendamentoModule
   ],
   controllers: [AppController],
   providers: [AppService],
