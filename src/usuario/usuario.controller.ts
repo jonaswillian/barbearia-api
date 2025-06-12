@@ -22,6 +22,11 @@ export class UsuarioController{
         return this.UsuarioService.listar_usuario(id)
     }
 
+    @Get("buscar/:usuario/:senha")
+    buscar_usuario(@Param('usuario') x:string, @Param('senha') y:string){
+        return this.UsuarioService.buscar_usuario(x, y)
+    }
+
     @Delete("deletar/:id")
     deletar_usuario(@Param('id') id:number){
         return this.UsuarioService.deletar_usuario(id)
